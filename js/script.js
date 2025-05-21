@@ -10,7 +10,6 @@ function iniciarCronometro() {
 function pausarCronometro() {
     clearInterval(idCentesimas);
     clearInterval(idMinutosSegundos);
-    console.log(contenedorCronometro);
     btnIniciar.disabled = false;
     btnPausar.disabled = true;
     btnIniciar.textContent = "Reanudar";
@@ -26,7 +25,6 @@ function reiniciarCronometro() {
     actualizarCronometro();
     btnIniciar.disabled = false;
     btnPausar.disabled = true;
-    console.log(contenedorCronometro);
 }
 
 function actualizarCronometro() {
@@ -35,7 +33,6 @@ function actualizarCronometro() {
 
 function contar() {
     centesimas += 1;
-    // console.log(centesimas);
     if (centesimas === 100) {
         centesimas = 0;
         segundos += 1;
@@ -57,6 +54,7 @@ const btnIniciar = document.querySelector(".btn-success");
 const btnPausar = document.querySelector(".btn-danger");
 const btnReiniciar = document.querySelector(".btn-warning");
 
+contenedorCronometro.classList.add('text-center');
 btnPausar.disabled = true;
 btnIniciar.addEventListener('click', iniciarCronometro);
 btnPausar.addEventListener('click', pausarCronometro);
